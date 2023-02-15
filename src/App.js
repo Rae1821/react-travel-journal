@@ -1,23 +1,24 @@
-import logo from './logo.svg';
+import places from './data'
+import Header from './Header'
+import Destination from './Destination'
 import './App.css';
 
 function App() {
+  const destinations = places.map(place => {
+    return (
+      <Destination 
+        key={place.id}
+        place={place}
+      />
+    )
+  })
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Header />
+      <section className="destination-list">
+        {destinations}
+      </section>
     </div>
   );
 }
